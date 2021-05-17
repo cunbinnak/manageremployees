@@ -6,11 +6,13 @@ import goya.fashion.vegetable.model.Employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class EmployeeService {
 
     public final EmployeeRepo employeeRepo;
@@ -36,7 +38,8 @@ public class EmployeeService {
     }
 
     public void deleteEmployeeById(Long id){
-         employeeRepo.deleteEmployeeById(id);
+//         employeeRepo.delete(findById(id));
+        employeeRepo.deleteEmployeeById(id);
     }
 
     public Employee findById(Long id) {
